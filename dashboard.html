@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AZMAIN GAMING 43 - Under Maintenance</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#05050f;color:#e2e8f0;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow-x:hidden}
+
+.scene{position:fixed;inset:0;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.4;animation:drift 12s ease-in-out infinite}
+.orb-1{width:500px;height:500px;background:#ff0000;top:-10%;left:-10%;animation-delay:0s}
+.orb-2{width:400px;height:400px;background:#f59e0b;bottom:-15%;right:-10%;animation-delay:-4s}
+.orb-3{width:300px;height:300px;background:#06b6d4;top:50%;left:60%;animation-delay:-8s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-20px) scale(1.05)}50%{transform:translate(-20px,30px) scale(0.95)}75%{transform:translate(20px,20px) scale(1.02)}}
+
+.grid-bg{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:60px 60px}
+
+.wrap{position:relative;z-index:1;max-width:520px;width:94%;text-align:center;padding:20px}
+
+.logo-box{margin-bottom:28px}
+.logo-box img{max-height:50px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+
+.gear-ring{width:100px;height:100px;margin:0 auto 32px;position:relative}
+.gear-ring-inner{width:100%;height:100%;border:3px solid #ff000044;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,rgba(15,15,40,0.9),#ff00000a);backdrop-filter:blur(10px);position:relative;z-index:1}
+.gear-ring-inner i{font-size:36px;color:#ff0000;filter:drop-shadow(0 0 12px #ff000066)}
+.gear-ring::before{content:"";position:absolute;inset:-6px;border:2px dashed #ff000033;border-radius:50%;animation:spin 40s linear infinite}
+.gear-ring::after{content:"";position:absolute;inset:-14px;border:1px dotted #ff000018;border-radius:50%;animation:spin 60s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.gear-cogs{position:absolute;z-index:0}
+.cog{position:absolute;color:#ff000022;animation:spin-cog 8s linear infinite}
+.cog-1{top:-8px;right:-12px;font-size:22px;animation-direction:reverse}
+.cog-2{bottom:-4px;left:-10px;font-size:18px;animation-duration:12s}
+@keyframes spin-cog{to{transform:rotate(360deg)}}
+
+h1{font-size:28px;font-weight:800;margin-bottom:4px;letter-spacing:-0.5px}
+h1 span{background:linear-gradient(135deg,#fff,#ff0000);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tagline{font-size:13px;color:#64748b;margin-bottom:28px;font-weight:500}
+
+.msg-card{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:24px 28px;margin-bottom:28px;position:relative;overflow:hidden}
+.msg-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#ff0000,transparent)}
+.msg-icon{width:36px;height:36px;background:#ff000018;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.msg-icon i{font-size:14px;color:#ff0000}
+.msg-text{font-size:13px;color:#94a3b8;line-height:1.8}
+
+.timer-section{margin-bottom:28px}
+.timer-label{font-size:10px;color:#475569;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:6px}
+.timer-label i{color:#ff0000;font-size:11px}
+.timer-grid{display:flex;gap:10px;justify-content:center}
+.timer-block{text-align:center}
+.timer-val{font-size:32px;font-weight:800;font-family:"SF Mono",Monaco,monospace;color:#fff;background:linear-gradient(145deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:14px 18px;min-width:68px;line-height:1;text-shadow:0 0 20px #ff000044}
+.timer-lbl{font-size:8px;color:#475569;margin-top:6px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.timer-done{color:#10b981;font-size:16px;font-weight:700;padding:20px}
+.timer-done i{margin-right:6px}
+
+.progress-wrap{margin-bottom:28px}
+.progress-label{display:flex;justify-content:space-between;font-size:9px;color:#475569;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.progress-bar{height:4px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#ff0000,#f59e0b);border-radius:4px;animation:progress-anim 3s ease-in-out infinite}
+@keyframes progress-anim{0%{width:15%}50%{width:75%}100%{width:15%}}
+
+.status-row{display:flex;align-items:center;justify-content:center;gap:8px;font-size:11px;color:#64748b;margin-bottom:20px}
+.status-dot{width:8px;height:8px;background:#f59e0b;border-radius:50%;animation:blink 1.5s ease-in-out infinite;box-shadow:0 0 8px #f59e0b66}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.info-row{display:flex;gap:10px;justify-content:center;margin-bottom:24px;flex-wrap:wrap}
+.info-chip{display:flex;align-items:center;gap:6px;font-size:10px;color:#64748b;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);border-radius:20px;padding:6px 14px}
+.info-chip i{font-size:9px;color:#ff0000}
+
+.social-link{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#94a3b8;text-decoration:none;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 20px;transition:all 0.2s;margin-bottom:20px}
+.social-link:hover{background:#ff000018;border-color:#ff000044;color:#fff}
+.social-link i{color:#ff0000}
+
+.footer{font-size:9px;color:#1e293b;display:flex;align-items:center;justify-content:center;gap:6px}
+.footer i{color:#ff000044;font-size:8px}
+
+@media(max-width:400px){.timer-val{font-size:24px;padding:10px 14px;min-width:54px}h1{font-size:22px}}
+</style></head><body>
+<div class="scene"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div></div>
+<div class="grid-bg"></div>
+<div class="wrap"><div class="gear-ring"><div class="gear-ring-inner"><i class="fas fa-cogs"></i></div><div class="gear-cogs"><i class="fas fa-cog cog cog-1"></i><i class="fas fa-cog cog cog-2"></i></div></div>
+<h1><span>Under Maintenance</span></h1>
+<div class="tagline">RAKIB MODZ</div>
+
+<div class="msg-card"><div class="msg-icon"><i class="fas fa-wrench"></i></div><div class="msg-text">নেটওয়ার্ক সমস্যার কারণে ওয়েবসাইট সাময়িকভাবে বন্ধুরা রাখা হয়েছে কোন কিছু নেওয়ার জন্য সহকারীর সাথে যোগাযোগ করুন
+
+
+
+The website is temporarily down due to network issues. Please contact the assistant to retrieve anything.</div></div>
+
+
+
+<div class="progress-wrap"><div class="progress-label"><span><i class="fas fa-server" style="color:#ff0000"></i> System Update</span><span>In Progress</span></div><div class="progress-bar"><div class="progress-fill"></div></div></div>
+
+<div class="status-row"><span class="status-dot"></span> Maintenance in progress</div>
+
+<div class="info-row">
+<div class="info-chip"><i class="fas fa-clock"></i> Temporary Downtime</div>
+<div class="info-chip"><i class="fas fa-database"></i> Data is Safe</div>
+</div><a href="http://t.me/AZMAINGAMING43" target="_blank" class="social-link"><i class="fab fa-telegram"></i> Join for Updates</a><div class="footer"><i class="fas fa-shield-alt"></i> RAKIB MODZ <i class="fas fa-circle" style="font-size:3px"></i> We'll be back soon</div>
+
+</div>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"b5d99bef265a4f13a7774e704911588d","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>
